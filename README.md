@@ -5,13 +5,21 @@ SmartLet Property Management is a powerful leasing automation software that leve
 # PRODUCT REQUIREMENT DOCUMENT FOR SMARTLET PROPERTY MANAGEMENT
 
 **Product Name**: SmartLet Property Management
+
 **Product Type**:	AI-Powered Property Management Website
+
 **Target release**:	16th of Sep 2023
+
 **Document status**: ONGOING
+
 **Document owner**: John Eme
+
 **Product Engineer**: Anais Gilbert and Bahadur Mia
+
 **Head of Product**: John Eme
+
 **Product Team**:	John Eme, Anais Gilbert and Bahadur Mia
+
 **Product Owner**: Maurice Flynn
 
 ## Product Overview
