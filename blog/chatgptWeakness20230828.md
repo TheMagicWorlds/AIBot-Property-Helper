@@ -32,7 +32,7 @@ When it comes to answering property-related questions, ChatGPT has its limitatio
 
 --- 
   
- *Published on [SmartLet AI Blog](https://www.play2helpworld-com.github.io/AIProperty/), {{ page.date | date: "%B %d, %Y" }} by {{ page.author }}* 
+ *Published on [SmartLet AI Blog](https://www.play2helpworld-com.github.io/AIProperty/)* 
   
  Subscribe to our newsletter for more AI insights and real estate trends. 
   
