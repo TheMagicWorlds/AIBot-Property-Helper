@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const blogPostsContainer = document.getElementById('blogPosts');
     const markdownFiles = [
-      'post1.md',
-      'post2.md',
-        'chatgptWeakness.md',
+      'chatgptWeakness20230828.md',
       // Add other Markdown files here
     ];
   
