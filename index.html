@@ -41,6 +41,8 @@
 		
 		<!-- main-LTR -->
 		<link rel="stylesheet" href="css/main-LTR.css">
+		<!-- chatbot style -->
+		<link rel="stylesheet" href="css/home.css">
 		
 		<!-- Clarity Analytics Tracker -->
 		<script type="text/javascript">
@@ -105,27 +107,51 @@
 										Elevate ROI: Discover How AI Transforms Property Management Strategies 
 									</p>
 								</div>
-				<div class="col-12   ">
-					<div class="hero-social-icons mb-3 ">
-						<div class="sc-wrapper dir-row sc-flat">
-						<ul class="sc-list">
-							<li class="sc-item " title="Facebook"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-facebook-f sc-icon"></i></a></li>
-							<li class="sc-item " title="youtube"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-youtube sc-icon"></i></a></li>
-							<li class="sc-item " title="instagram"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-instagram sc-icon"></i></a></li>
-							<li class="sc-item " title="twitter"><a class="sc-link" href="#0" title="social media icon"><i class="fab fa-twitter sc-icon"></i></a></li>
-						</ul>
-						</div>
-					</div>
-					</div>
+								<div class="col-10">
+									<h4 class="clr-main">
+										Ask me anything
+									</h4>
+								</div>
+	
+								<div class="askContainer">
+									<div class="askflex-container">
+										<input
+											type="text"
+											id="question"
+											placeholder="Enter your question..."
+										/>
+										<button
+											id="ask"
+										>
+											Ask
+										</button>
+									</div>
+									<div id="loading-image"></div>
+									<div id="response"></div>
+								</div>
+							
 								<div class="col-12   ">
-									<div class="cta-links-area "><a class=" btn-outline cta-link cta-link-primary " href="#0">start now</a>
-										<div class="play-btn-row-dir ">
-						<!-- <a class="video-link" href="#" role="button" title="play" data-fancybox="data-fancybox"> -->
-												<div class="play-video-btn">
-													<div class="play-btn"> <i class="fas fa-play icon"></i></div>
-												</div></a></div>
+									<div class="hero-social-icons mb-3 ">
+										<div class="sc-wrapper dir-row sc-flat">
+											<p class="">Tell your friends</p>
+											<ul class="sc-list">
+												<li class="sc-item " title="Facebook"><a class="sc-link" href="#0"
+														title="social media icon"><i
+															class="fab fa-facebook-f sc-icon"></i></a></li>
+												<li class="sc-item " title="youtube"><a class="sc-link" href="#0"
+														title="social media icon"><i class="fab fa-youtube sc-icon"></i></a>
+												</li>
+												<li class="sc-item " title="instagram"><a class="sc-link" href="#0"
+														title="social media icon"><i
+															class="fab fa-instagram sc-icon"></i></a></li>
+												<li class="sc-item " title="twitter"><a class="sc-link" href="#0"
+														title="social media icon"><i class="fab fa-twitter sc-icon"></i></a>
+												</li>
+											</ul>
+										</div>
 									</div>
 								</div>
+								
 							</div>
 						</div>
 					</div>
@@ -866,5 +892,7 @@
 				<script src="js/vendors/jquery.fancybox.min.js"></script>
 				<!--     main     -->
 				<script src="js/main.js"></script>
+				<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+				<script src="js/askMe.js"></script>"
 	</body>
 </html>
