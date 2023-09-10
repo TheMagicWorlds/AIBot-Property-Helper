@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         const ans = response.data.GPT.replace(regex, '<br>');
                         setResponse(ans);
                         setIsLoading(false)
+                        console.log(response);
                     })
                     .catch((error) => {
                         console.error(error);
@@ -59,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const setIsLoading = (isLoading) => {
-        console.log("i'm in setIsLoading", isLoading)
         askButton.disabled = isLoading;
         if (isLoading) {
             askButton.style.cursor = 'not-allowed'
