@@ -11,21 +11,21 @@ document.addEventListener("DOMContentLoaded", () => {
             setResponse('Please wait! Response is coming....')
             setIsLoading(true)
             try {
-                const url = 'https://open-ai21.p.rapidapi.com/conversationgpt';
+                const url = 'https://api.openai.com/v1/chat/completions';
                 const options = {
                     method: 'POST',
                     headers: {
-                        'content-type': 'application/json',
-                        'X-RapidAPI-Key': '12865b262bmsh1df342a7a8209adp11946djsned15b0207e45',
-                        'X-RapidAPI-Host': 'open-ai21.p.rapidapi.com'
-                    },
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer OPENAI_KEY`,
+                      },
                     body: JSON.stringify({
                         messages: [
                             {
                                 role: 'user',
                                 content: question
                             }
-                        ]
+                        ],
+                        model: 'gpt-3.5-turbo-16k',
                     })
                 };
                 axios
@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     })
                     .then((response) => {
                         const regex = /\\n/g;
-                        const ans = response.data.GPT.replace(regex, '<br>');
+                        const ans = response.choices[0].message.content.replace(regex, '<br>');
+                        // console.log(response.data.choices[0].message.content)
                         setResponse(ans);
                         setIsLoading(false)
                         console.log(response);
@@ -71,4 +72,4 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     askButton.onclick = handleAsk
-});  
+});
