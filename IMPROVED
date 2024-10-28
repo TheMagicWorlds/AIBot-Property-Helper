@@ -1,0 +1,100 @@
+class AIProperty {
+    constructor(propertyId, location, sizeSqft, bedrooms, price) {
+        this.propertyId = propertyId;
+        this.location = location;
+        this.sizeSqft = sizeSqft;
+        this.bedrooms = bedrooms;
+        this.price = price;
+        this.maintenanceLogs = [];
+    }
+
+    // Updates the price of the property with validation
+    updatePrice(newPrice) {
+        if (newPrice > 0) {
+            this.price = newPrice;
+            console.log(`Property price updated to $${this.price}`);
+        } else {
+            console.error("Price must be greater than zero.");
+        }
+    }
+
+    // Adds a maintenance log entry with validation
+    addMaintenanceLog(issue, date, cost) {
+        if (cost < 0) {
+            console.error("Cost must be a non-negative value.");
+            return;
+        }
+
+        const logEntry = {
+            issue,
+            date: new Date(date), // Ensures date is a valid Date object
+            cost
+        };
+        this.maintenanceLogs.push(logEntry);
+        console.log(`Added maintenance log:`, logEntry);
+    }
+
+    // Asynchronously estimates rent using a mock AI model
+    async calculateEstimatedRent(aiModel) {
+        const estimatedRent = await aiModel.predict({
+            location: this.location,
+            sizeSqft: this.sizeSqft,
+            bedrooms: this.bedrooms
+        });
+        console.log(`Estimated rent based on AI model: $${estimatedRent}`);
+        return estimatedRent;
+    }
+
+    // Asynchronously finds matching tenants based on AI model predictions
+    async findMatchingTenants(tenantList, aiModel) {
+        const matchingTenants = [];
+        for (const tenant of tenantList) {
+            const matchScore = await aiModel.calculateMatch(this, tenant);
+            if (matchScore > 0.8) { // Threshold for a good match
+                matchingTenants.push(tenant);
+            }
+        }
+        console.log(`Found ${matchingTenants.length} matching tenants.`);
+        return matchingTenants;
+    }
+}
+
+// Mock AI model for demonstration purposes
+const aiModel = {
+    predict: async function (propertyData) {
+        // Simulate an asynchronous operation with a promise
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                // Example calculation for estimated rent
+                const estimatedRent = (propertyData.sizeSqft * 0.75) + (propertyData.bedrooms * 200) + 500;
+                resolve(estimatedRent);
+            }, 1000); // Simulates a delay
+        });
+    },
+    calculateMatch: async function (property, tenant) {
+        // Simulate an asynchronous operation with a promise
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                // Random match score for demo purposes
+                const matchScore = Math.random();
+                resolve(matchScore);
+            }, 500); // Simulates a delay
+        });
+    }
+};
+
+// Example usage
+(async () => {
+    const property = new AIProperty(1, 'Downtown', 1200, 3, 1500);
+    property.updatePrice(1600);
+    property.addMaintenanceLog('Leaky faucet', '2024-10-01', 150);
+
+    const estimatedRent = await property.calculateEstimatedRent(aiModel);
+
+    const tenants = [
+        { name: 'John Doe', preferences: { bedrooms: 3, location: 'Downtown' } },
+        { name: 'Jane Smith', preferences: { bedrooms: 2, location: 'Suburb' } }
+    ];
+    const matchingTenants = await property.findMatchingTenants(tenants, aiModel);
+    console.log('Matching Tenants:', matchingTenants);
+})();
